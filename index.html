@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Awesome Landing Page</title>
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa; /* Light grey background */
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            overflow: hidden;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation */
+        .main-header {
+            background: #ffffff; /* White background for header */
+            color: #333;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e7e7e7; /* Subtle border */
+            position: sticky; /* Sticky header */
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .main-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .main-header #branding h1 {
+            margin: 0;
+            font-size: 28px;
+            font-weight: bold;
+            color: #d67d17; /* Primary color for branding */
+        }
+
+        .main-header #branding h1 .highlight {
+            color: #555; /* Slightly darker highlight */
+        }
+
+        .main-header nav ul {
+            padding: 0;
+            list-style: none;
+        }
+
+        .main-header nav ul li {
+            display: inline;
+            padding: 0 15px;
+        }
+
+        .main-header nav a {
+            color: #555;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 14px;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .main-header nav a:hover,
+        .main-header nav a.current {
+            color: #f65600; /* Primary color on hover/current */
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 80vh; /* Viewport height */
+            /* Consider a more dynamic or abstract image for a "cool" feel */
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;            
+            position: relative; /* For overlay */
+        }
+
+        .hero-content {
+            width: 100%;
+        }
+
+        .hero-mov {
+            z-index: -1;
+        }
+        
+        .hero-text {
+            display: block;
+            padding-bottom: 4000px;
+        }
+
+        .hero-text h1 {
+            font-size: 60px; /* Larger font size */
+            line-height: 1.2;
+            margin-bottom: 20px;
+            font-weight: 700;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+        }
+
+        .hero-text p {
+            margin: 0 auto;
+            font-size: 22px;
+            margin-bottom: 30px;
+            max-width: 700px;
+            font-weight: 300;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+        }
+
+        .hero-text .button {
+            font-size: 18px;
+            text-decoration: none;
+            color: #ffffff;
+            background: #c5651b; /* Primary color button */
+            padding: 15px 35px;
+            border-radius: 50px; /* Pill-shaped button */
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            display: inline-block;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.7);
+        }
+
+        .hero-text .button:hover {
+            background: #e66706; /* Darker shade on hover */
+            transform: translateY(-3px); /* Slight lift on hover */
+        }
+
+        /* Footer */
+        .main-footer {
+            background: #343a40; /* Dark footer */
+            color: #adb5bd; /* Lighter text for dark background */
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 0; /* No margin if CTA is the last colored section */
+        }
+
+        .main-footer p {
+            margin: 0;
+            font-size: 14px;
+        }
+
+        .main-footer a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .main-footer a:hover {
+            text-decoration: underline;
+        }
+
+        .end {
+            height: 10vh; /* Full viewport height for end section */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f8f9fa; /* Same as body background */
+            color: #333;
+            font-size: 24px;
+        }
+
+        /* Responsive Adjustments */
+        @media(max-width: 992px){
+            .hero-text h1 {
+                font-size: 48px;
+            }
+            .hero-text p {
+                font-size: 20px;
+            }
+        }
+
+        @media(max-width: 768px){
+            .main-header .container {
+                flex-direction: column;
+            }
+            .main-header nav ul {
+                margin-top: 10px;
+            }
+            .main-header nav ul li {
+                padding: 5px 10px;
+            }
+
+            .hero-text {
+                min-height: 100vh;
+            }
+            .hero-text h1 {
+                font-size: 36px;
+            }
+            .hero-text p {
+                font-size: 18px;
+            }
+            .hero-text .button {
+                font-size: 16px;
+                padding: 12px 28px;
+            }
+
+            .content-section h2, .cta-section h2 {
+                font-size: 28px;
+            }
+            .features-grid {
+                grid-template-columns: 1fr; /* Stack features on smaller screens */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container">
+            <div id="branding">
+                <h1><span class="highlight">Scroll</span> Down</h1>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div id="scrolly-video" class="hero-mov"></div>
+            <div class="hero-text">
+                <h1>Elegant and Functional</h1>
+                <p>Seamless navigation through digital landscapes. <br>Diving deeper into the digital stream.</p>
+                <a href="#" class="button">Jump to the top</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="end">
+        <p>End.</p>
+    </section>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; 2025 Ryo Kawanami. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/scrolly-video@latest/dist/scrolly-video.js"></script>
+    <script type="text/javascript">
+        new ScrollyVideo({
+        scrollyVideoContainer: "scrolly-video",
+        //   src: "https://scrollyvideo.js.org/goldengate.mp4",
+        src: "sample.mp4",
+        });
+    </script>
+</body>
+</html>
